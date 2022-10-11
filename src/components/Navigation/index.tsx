@@ -1,10 +1,12 @@
+import { useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
+  console.log(1);
   const location = useLocation();
-  const isLocation = (path: string): string => {
+  const isLocation = useCallback((path: string) => {
     return 'nav-link' + (location.pathname === path ? ' active' : '');
-  };
+  }, []);
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
